@@ -1,13 +1,14 @@
-import { IResolvers } from 'graphql-tools'
-import { database } from '../data/database.store'
-import _ from 'lodash'
+import {IResolvers} from 'graphql-tools'
+import {database} from '../data/database.store'
+import lodash from 'lodash'
+
 const mutation: IResolvers = {
-  Mutation:{
-    newCourse(_: void, { course }): any {
+  Mutation: {
+    newCourse(_: void, {course}): any {
       let courses = database.courses
-      if (courses.filter(courseIntoDataBase => (courseIntoDataBase.title === course.title && courseIntoDataBase.classes === course.classes)).length === 0) {
+      if (database.courses.filter(courseIntoDataBase => (courseIntoDataBase.title === course.title && courseIntoDataBase.classes === course.classes)).length === 0) {
         const courseAdded = {
-          id: String(courses.length+1),
+          id: String(courses.length + 1),
           title: course.title,
           description: course.description,
           classes: course.classes,
@@ -24,8 +25,23 @@ const mutation: IResolvers = {
         courses = []
         return courses
       }
+    },
+    updateCourse(_: void, {course}): any {
+      let courses = database.courses
+
+      const courseToUpdated = lodash.findIndex(courses, function (courseFounded) {
+        return courseFounded.id === course.id
+      })
+      if (courseToUpdated > -1) {
+        course.reviews = courses[courseToUpdated].reviews
+        courses[courseToUpdated] = course
+        return courses
+      } else {
+        courses = []
+        return courses
+      }
     }
-}
+  }
 }
 
-export default mutation;
+export default mutation
