@@ -15,6 +15,18 @@ type Mutation {
     deleteCourse(courseId: ID!):[Course]!
 }
 
+input CourseInput {
+    id: ID!
+    title: String!
+    description: String!
+    classes: Int!
+    time: Float!
+    logo: String!
+    level: Level=TODOS
+    path: String!
+    teacher: String!
+}
+
 type Student {
     "Id del estudiante"
     id: ID!
