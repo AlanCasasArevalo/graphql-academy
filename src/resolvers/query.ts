@@ -9,4 +9,5 @@ const query: IResolvers = {
   }
 }
 
+
 export default query;
