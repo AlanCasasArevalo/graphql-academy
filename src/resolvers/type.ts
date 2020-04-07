@@ -10,6 +10,18 @@ const type: IResolvers = {
       })
       return courseList
     }
+  },
+  Course: {
+    students: parent => {
+      const studentList: Array<any> = []
+      const courseId = parent.id
+      database.students.map((student: any) => {
+        if (student.courses.filter((id:any) => id === courseId) > 0) {
+          studentList.push(student)
+        }
+      })
+      return studentList
+    }
   }
 }
 
