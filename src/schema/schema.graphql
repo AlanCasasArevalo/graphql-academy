@@ -1,0 +1,22 @@
+type Query {
+    "Lista de estudiantes de la academia"
+    students: String
+}
+
+type Student {
+    "Id del estudiante"
+    id: ID!
+    name: String!
+    email: String!
+    website: String
+    courses: [Course!]!
+}
+
+type Course {
+    "Cursos posibles"
+    id: ID!
+    title: String!
+    description: String!
+    classes: Int!
+    time: Float!
+}
