@@ -38,8 +38,10 @@ type Level {
 }
 
 type Rating {
+    id: ID
     name: String
-    rating: Int
+    points: Float
+    comment: String
 }
 
 
