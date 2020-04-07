@@ -9,6 +9,12 @@ type Query {
     course(id: ID!): Course!
 }
 
+type Mutation {
+    newCourse(course: CourseInput!):[Course]!
+    updateCourse(course: CourseInput!):[Course]!
+    deleteCourse(courseId: ID!):[Course]!
+}
+
 type Student {
     "Id del estudiante"
     id: ID!
