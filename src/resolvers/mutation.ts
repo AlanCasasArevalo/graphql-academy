@@ -40,6 +40,19 @@ const mutation: IResolvers = {
         courses = []
         return courses
       }
+    },
+    deleteCourse(_: void, { courseId }): any {
+      let courses = database.courses
+
+      const deleteCourse = lodash.remove(database.courses, function (elementToDelete) {
+        return elementToDelete.id === courseId
+      })
+      if (deleteCourse[0] === undefined) {
+        courses = []
+        return courses
+      } else {
+        return courses
+      }
     }
   }
 }
