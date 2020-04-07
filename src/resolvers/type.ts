@@ -21,7 +21,8 @@ const type: IResolvers = {
         }
       })
       return studentList
-    }
+    },
+    path: parent => `https://www.udemy.com${parent.path}`
   }
 }
 
