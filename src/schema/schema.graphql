@@ -16,7 +16,7 @@ type Mutation {
 }
 
 input CourseInput {
-    id: ID!
+    id: ID
     title: String!
     description: String!
     classes: Int!
