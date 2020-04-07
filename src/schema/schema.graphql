@@ -1,6 +1,6 @@
 type Query {
     "Lista de estudiantes de la academia"
-    students: String
+    students: [Student!]!
 }
 
 type Student {
@@ -19,4 +19,21 @@ type Course {
     description: String!
     classes: Int!
     time: Float!
+    logo: String!
+    level: Level!
+    path: String!
+    teacher: String!
+    student: [Student]!
+    reviews: [Rating]!
 }
+
+type Level {
+    name: String
+}
+
+type Rating {
+    name: String
+    rating: Int
+}
+
+
