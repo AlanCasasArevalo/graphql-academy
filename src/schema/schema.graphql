@@ -29,7 +29,7 @@ type Course {
     level: Level!
     path: String!
     teacher: String!
-    student: [Student]!
+    students: [Student]!
     reviews: [Rating]!
 }
 
