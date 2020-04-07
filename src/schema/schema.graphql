@@ -39,8 +39,11 @@ type Course {
     reviews: [Rating]!
 }
 
-type Level {
-    name: String
+enum Level {
+    TODOS
+    NOVATOS
+    INTERMEDIO
+    EXPERTO
 }
 
 type Rating {
