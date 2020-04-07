@@ -18,7 +18,10 @@ const query: IResolvers = {
           courses: []
         }
       }
-    }
+    },
+    courses(): any {
+      return database.courses
+    },
   }
 }
 
